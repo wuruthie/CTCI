@@ -80,3 +80,71 @@ function createStringMap(str) {
   }
   return stringMap;
 }
+
+//5 One Away
+//Give two strings, write a function to check if they are one edit or zero edits away
+//Edit = insert, remove, or replace a character
+//Take in string and gives boolean given number of edits
+
+function oneAway(str1, str2) {
+  if (Math.abs(str1.length - str2.length) > 1) {
+    return false;
+  }
+  if (str1.length === str2.length) {
+    return sameLength(str1, str2);
+  } else {
+    return diffLength(str1, str2);
+  }
+}
+
+function sameLength(str1, str2) {
+  var diff = 0;
+  for (i = 0; i < str1.length; i++) {
+    if (diff > 1) {
+      return false;
+    }
+    if (str1.charAt(i) !== str2.charAt(i)) {
+      diff++;
+    }
+  }
+  return true;
+}
+
+
+function longerString(str1, str2) {
+  if (str1.length > str2.length) {
+    return str1;
+  } else {
+    return str2;
+  }
+}
+
+function shorterString(str1, str2) {
+  if (str1.length < str2.length) {
+    return str1;
+  } else {
+    return str2;
+  }
+}
+
+function diffLength(str1, str2) {
+  var diff = 0
+  var shortIndex = 0;
+  var longIndex = 0;
+  var short = shorterString(str1, str2);
+  var long = longerString(str1, str2);
+  while (shortIndex != short.length) {
+    if (diff > 1) {
+      return false;
+    }
+
+    if (short.charAt(shortIndex) === long.charAt(longIndex)) {
+      shortIndex++;
+      longIndex++;
+    } else {
+      diff++;
+      longIndex++;
+    }
+  }
+  return true;
+}
