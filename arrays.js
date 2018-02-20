@@ -148,3 +148,28 @@ function diffLength(str1, str2) {
   }
   return true;
 }
+
+//6 String Compression
+//Implement a basic method to perform basic string compression using the counts of repeated characters. For example, the string aabccccddd would become a2b1c4d3. If the compressed string is not smaller than the original string, your method should return the original string. Assume the string only has uppercase and lowercase letters (a-z).
+//Input: String Output: String
+
+function stringCompressor(str) {
+  var count = 1;
+  var compressed = [];
+  for (i = 0; i < str.length; i++) {
+    if (str.charAt(i) !== str.charAt(i + 1)) {
+      compressed.push(str.charAt(i));
+      compressed.push(count.toString());
+      count = 1;
+    } else {
+      count++;
+    }
+  }
+
+  if (compressed.length > str.length) {
+    return str;
+  } else {
+    return compressed.join('');
+  }
+}
+
