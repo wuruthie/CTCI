@@ -175,7 +175,37 @@ function stringCompressor(str) {
 
 //7 Rotate Matrix
 //Given an image represented by an NxN matrix, where each pixel is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+function rotateMatrix(matrix) {
+  var tmp;
+  for (i = 0; i < )
+}
 
+var matrix = [
+  [0, 0, 0],
+  [1, 1, 1],
+  [2, 2, 2]
+];
+
+var testMatrix = [
+  [2, 1, 0],
+  [2, 1, 0],
+  [2, 1, 0]
+];
+
+var matrix2 = [
+  [0, 0],
+  [1, 1]
+];
+
+var testMatrix2 = [
+  [1, 0],
+  [1, 0]
+];
+
+var testOne = rotateMatrix(matrix) === testMatrix;
+console.log('testOne', testOne);
+var testTWo = rotateMatrix(matrix2) === testMatrix2;
+console.log('testTwo', testTwo);
 
 //8 Zero Matrix
 //Write an algo such that if an element in a MxN matrix is zero, its entire row and column are set to zero
@@ -208,5 +238,11 @@ function setZeroes(matrix, indices) {
 //9 String Rotation
 //Assume you have a method isSubstring  which checks if one word is a substring of another. Given two strings s1 and s2, write code to check whether s2 is a rotation of s1 by using one call to isSubstring
 
-
+function isSubstring(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  var concatenated = [str1, str1].join('');
+  return concatenated.includes(str2);
+}
 
