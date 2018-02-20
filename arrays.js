@@ -173,3 +173,40 @@ function stringCompressor(str) {
   }
 }
 
+//7 Rotate Matrix
+//Given an image represented by an NxN matrix, where each pixel is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+
+
+//8 Zero Matrix
+//Write an algo such that if an element in a MxN matrix is zero, its entire row and column are set to zero
+function zeroMatrix(matrix) {
+  var indices = [];
+  for (x = 0; x < matrix.length; x++) {
+    for (y = 0; y < matrix[x].length; y++) {
+      if (matrix[x][y] === 0) {
+        indices.push([x, y]);
+      }
+    }
+  }
+  return setZeroes(matrix, indices);
+}
+
+function setZeroes(matrix, indices) {
+  for (i = 0; i < indices.length; i++) {
+    var row = indices[i][0];
+    var col = indices[i][1];
+    for (x = 0; x < matrix[row].length; x++) {
+      matrix[row][x] = 0;
+    }
+    for (y = 0; y < matrix[row].length; y++) {
+      matrix[y][col] = 0;
+    }
+  }
+  return matrix;
+}
+
+//9 String Rotation
+//Assume you have a method isSubstring  which checks if one word is a substring of another. Given two strings s1 and s2, write code to check whether s2 is a rotation of s1 by using one call to isSubstring
+
+
+
